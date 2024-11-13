@@ -84,6 +84,6 @@ module.exports = {
         if (interaction.user.id !== '810409750625386497') {
             return interaction.reply({ content: '你沒權限使用這個指令。', ephemeral: true });
         } else {
-            s
+            
 // 登入 Discord
 client.login(TOKEN);
