@@ -7,3 +7,5 @@ module.exports = {
         }
     }
 }
+
+console.log('Loaded event file: hello.js'); // 在控制台顯示載入的事件檔案名稱

@@ -6,8 +6,6 @@ const path = require('path');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 client.commands = new Collection();
-
-// 讀取 commands 資料夾中的所有 .js 檔案
 const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter(file => file.endsWith('.js'));
 
 // 將每個指令載入到 client.commands 集合中
@@ -76,5 +74,16 @@ client.once('ready', () => {
     console.log(`Ready! Logged in as ${client.user.tag}`);
 });
 
+const { SlashCommandBuilder } = require('discord.js');
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('reload')
+        .setDescription('Reloads all application (/) commands.'),
+    async execute(interaction) {
+        if (interaction.user.id !== '810409750625386497') {
+            return interaction.reply({ content: '你沒權限使用這個指令。', ephemeral: true });
+        } else {
+            s
 // 登入 Discord
 client.login(TOKEN);
