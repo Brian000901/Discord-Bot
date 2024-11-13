@@ -74,16 +74,5 @@ client.once('ready', () => {
     console.log(`Ready! Logged in as ${client.user.tag}`);
 });
 
-const { SlashCommandBuilder } = require('discord.js');
-
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('reload')
-        .setDescription('Reloads all application (/) commands.'),
-    async execute(interaction) {
-        if (interaction.user.id !== '810409750625386497') {
-            return interaction.reply({ content: '你沒權限使用這個指令。', ephemeral: true });
-        } else {
-            
 // 登入 Discord
 client.login(TOKEN);
